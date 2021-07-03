@@ -1,0 +1,11 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+#name de du chemin (on peut mettre le nom qu'on veut)
+#path : chemin vers le fichier avec la valeur en accolade
+#controller chemin vers le NOM de la méthode
+
+showBeer:
+    path:       /beer/{id}
+    controller: App\Controller\BarController::showBeer

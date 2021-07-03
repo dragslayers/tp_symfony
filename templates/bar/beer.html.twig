@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page Beer
+{% endblock %}
+
+{% block body %}
+<div class="row">
+	<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<h2 class="card-title">Name :{{ beers.0.name }}</h2>
+					<p class="card-text">Degree :{{ beers.0.degree }}</p>
+					<p class="card-text">Date :{{ beers.0.publishedAt | date('d-m-y h:s:m') }}</p>
+					<p class="card-text">Rating :{{ beers.0.rating }}</p>
+					<p>{{ beers.0.description }}</p>
+					{% if beers.0.country %}
+						<p>Country : {{ beers.0.country.name }}</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

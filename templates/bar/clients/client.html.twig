@@ -1,0 +1,18 @@
+{% extends('base.html.twig') %}
+
+{% block body %}
+<h1>{{clients_title}}</h1>
+<div class="row">
+		<div class="col-md-12">
+			{% for client in clients %}
+				<div class="card">
+					<div class="card-body">
+						<h2 class="card-title">Name :{{ client.name }}</h2>
+						<p class="card-text">Email :{{ client.email }}</p>
+						<p class="card-text">Consommation :{{ client.conso }}</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

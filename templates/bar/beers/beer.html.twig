@@ -1,0 +1,37 @@
+{% extends('base.html.twig') %}
+
+{% block body %}
+    <div class="col">
+       <h1> {{beers_title}}</h1>
+    </div>
+    <div class="row">
+        <div class="col">
+            </div>
+            <div class="col rounded-1 border border-2">
+                {# ma version avec un for imbriqué mais pas besoin de rajouter ['beers'] apres le get
+                <ul>
+                    <h5>{{beers_title}}</h5>
+                    {% for key,beer in beers %}
+                        {% for key1,beer1 in beer %}
+                        <li>
+                            Name : {{ beer1.name }}
+                            Degree : {{ beer1.degree }}
+                        </li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>#}
+                <ul>
+                {% set i = 0 %}
+                {% for beer in beers %}
+                    <li>
+                        <a href="{{ path('showBeer', { 'id' : beer.id }) }}">
+                        <img src="{{ asset('build/images/beer_0'~ i ~'.jpg') }}" alt="ACME logo">
+                        {{ beer.name }}
+                        </a>
+                    </li>
+                    {% set i = i + 1 %}
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+{% endblock %}

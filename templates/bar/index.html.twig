@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Bar!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+    <ul>
+        {% set i = 0 %}
+        {% for beer in beers %}
+            <li>
+                Name : {{ beer.name }} <br>
+                Degree : {{ beer.degree}} <br>
+                Description : {{ beer.description }}<br>
+                Disponibilité : {{ beer.status }}<br>
+                publié le : {{ beer.publishedAt | date('d-m-Y h:m:s') }}<br>
+                <img src="{{ asset('build/images/beer_0'~ i ~'.jpg') }}" alt="ACME logo">
+                {% set i = i + 1 %}
+                </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
